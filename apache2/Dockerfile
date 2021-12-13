@@ -30,3 +30,16 @@ ENTRYPOINT ["/opt/docker/bin/entrypoint.sh"]
 CMD ["/bin/bash", "/opt/startup.sh"]
 
 EXPOSE 80 443
+
+
+
+###########################################################################
+# Netway Custom
+###########################################################################
+
+#make dir
+RUN mkdir /var/www/domains
+
+#for Netway hostbill ngrok .htaccess
+RUN a2enmod substitute \
+    && service apache2 restart \

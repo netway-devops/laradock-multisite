@@ -1012,7 +1012,7 @@ RUN if [ ${INSTALL_AUDIOWAVEFORM} = true ]; then \
    && make \
    && make install \
 ;fi
- 
+
 
 #####################################
 # wkhtmltopdf:
@@ -1246,3 +1246,11 @@ WORKDIR /var/www
 CMD ["php-fpm"]
 
 EXPOSE 9000
+
+
+###########################################################################
+# Netway Custom
+###########################################################################
+
+#make dir
+RUN mkdir /var/www/domains
