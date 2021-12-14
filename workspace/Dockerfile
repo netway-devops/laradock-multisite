@@ -1728,3 +1728,7 @@ RUN echo "export PROMPT_COMMAND='history -a' && export HISTFILE=/home/$USERNAME/
 ARG USERNAME=laradock
 RUN mkdir -p /home/$USERNAME/.vscode-server/extensions
 RUN chown -R $USERNAME /home/$USERNAME/.vscode-server
+
+#upgrade git
+RUN add-apt-repository -y ppa:git-core/ppa && \
+  apt-get -yqq install git \
