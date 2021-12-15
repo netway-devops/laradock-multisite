@@ -11,6 +11,14 @@ jobs:
     name: Sync latest commits from upstream repo
 
     steps:
+    
+    - name: Crente new branch
+      uses: peterjgrainger/action-create-branch@v2.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        branch: update/sync-from-upstream-repo
+    
     # REQUIRED step
     # Step 1: run a standard checkout action, provided by github
     - name: Checkout target repo
@@ -34,8 +42,9 @@ jobs:
         upstream_sync_branch: master
         upstream_sync_repo: laradock/laradock
         # Set test_mode true to run tests instead of the true action!!
-        test_mode: true
+        test_mode: false
         git_config_pull_rebase: true
+        target_branch_push_args: "--force"
       
     # Step 3: Display a sample message based on the sync output var 'has_new_commits'
     - name: New commits found
