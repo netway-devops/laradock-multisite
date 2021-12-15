@@ -13,6 +13,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           merge_method: rebase
+          #base: main
           base: main
           head: main
           pr_title: "Merged from laradock/laradock "
