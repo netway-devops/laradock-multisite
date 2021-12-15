@@ -8,13 +8,13 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
       - uses: tgymnich/fork-sync@v1.4
         with:
+          token: ${{ secrets.TOKEN }}
           merge_method: rebase
           base: master
           head: main
           pr_title: "Merged from laradock/laradock "
-          #pr_message: ""
+          pr_message: "update from repository laradock/laradock"
           auto_approve: false
