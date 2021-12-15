@@ -7,17 +7,19 @@ on:
 
 jobs:
   sync_latest_from_upstream:
-    runs-on: ubuntu-latest
     name: Sync latest commits from upstream repo
+    runs-on: ubuntu-latest
+    env:
+      UPDATE_BRANCH_NAME: update/sync-from-upstream-repo-$(date +'%Y-%m-%d')
 
     steps:
     
-    - name: Crente new branch
+    - name: Create new branch
       uses: peterjgrainger/action-create-branch@v2.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        branch: update/sync-from-upstream-repo
+        branch: ${{ env.UPDATE_BRANCH_NAME }}
     
     # REQUIRED step
     # Step 1: run a standard checkout action, provided by github
@@ -26,7 +28,7 @@ jobs:
       with:
         # optional: set the branch to checkout,
         # sync action checks out your 'target_sync_branch' anyway
-        ref:  update/sync-from-upstream-repo
+        ref:  ${{ env.UPDATE_BRANCH_NAME }}
         # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
 
@@ -36,7 +38,7 @@ jobs:
       id: sync
       uses: aormsby/Fork-Sync-With-Upstream-action@v3.2
       with:
-        target_sync_branch: update/sync-from-upstream-repo
+        target_sync_branch: ${{ env.UPDATE_BRANCH_NAME }}
         # REQUIRED 'target_repo_token' exactly like this!
         target_repo_token: ${{ secrets.TOKEN }}
         upstream_sync_branch: master
