@@ -10,7 +10,7 @@ jobs:
     name: Sync latest commits from upstream repo
     runs-on: ubuntu-latest
     env:
-      UPDATE_BRANCH_NAME: update/sync-from-upstream-repo-$(date +'%Y-%m-%d')
+      UPDATE_BRANCH_NAME: "update/sync-from-upstream-repo-$(date +'%Y-%m-%d')"
 
     steps:
     
