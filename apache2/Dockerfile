@@ -42,4 +42,8 @@ RUN mkdir /var/www/domains
 
 #for Netway hostbill ngrok .htaccess
 RUN a2enmod substitute \
-    && service apache2 restart \
+    && a2enmod proxy \
+    && a2enmod proxy_http \
+    && a2enmod proxy_balancer \
+    && service apache2 restart
+
