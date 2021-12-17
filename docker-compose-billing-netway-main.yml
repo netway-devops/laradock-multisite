@@ -503,6 +503,7 @@ services:
       backend:
       laradocknetwork:
         ipv4_address: ${MYSQL_CONTAINER_IP}
+    command: mysqld --sql_mode=""
 
   ### Percona ################################################
   percona:
