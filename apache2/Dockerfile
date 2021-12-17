@@ -46,4 +46,3 @@ RUN a2enmod substitute \
     && a2enmod proxy_http \
     && a2enmod proxy_balancer \
     && service apache2 restart
-
