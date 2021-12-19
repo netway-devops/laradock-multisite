@@ -40,9 +40,14 @@ EXPOSE 80 443
 #make dir
 RUN mkdir /var/www/domains
 
-#for Netway hostbill ngrok .htaccess
+#for Netway hostbill ngrok .htaccess and nodejs proxy
 RUN a2enmod substitute \
     && a2enmod proxy \
     && a2enmod proxy_http \
     && a2enmod proxy_balancer \
     && service apache2 restart
+
+#ping, nano
+RUN apt update -y \
+    && apt install -y iputils-ping \
+    && apt install -y nano

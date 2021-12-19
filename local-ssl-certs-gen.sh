@@ -11,6 +11,7 @@ declare -a arr=(
                 "rvglobalsoft.com.main"
                 "client.netway.co.th.main"
                 "billing.netway.co.th.main"
+                "client.netway.co.th.main"
                 )
 
 for i in "${arr[@]}"
