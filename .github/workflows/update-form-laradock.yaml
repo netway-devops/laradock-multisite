@@ -46,7 +46,7 @@ jobs:
         upstream_sync_repo: laradock/laradock
         # Set test_mode true to run tests instead of the true action!!
         test_mode: false
-        git_config_pull_rebase: true
+        #git_config_pull_rebase: true
         target_branch_push_args: "--force"
         git_config_user: "klaarnut"
         git_config_email: "arnut@netway.co.th"
