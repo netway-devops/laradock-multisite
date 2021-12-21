@@ -14,10 +14,6 @@ jobs:
     
     - name: Set branch name to ENV
       run: echo "UPDATE_BRANCH_NAME=update/sync-from-upstream-repo-$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-      
-    - name: Delete branch on origin if exists
-      run: |
-        git push origin --delete ${{ env.UPDATE_BRANCH_NAME }}
     
     - name: Create new branch
       uses: peterjgrainger/action-create-branch@v2.0.1
