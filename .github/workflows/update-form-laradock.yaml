@@ -70,7 +70,7 @@ jobs:
         committer: Arnut Klamhui <arnut@netway.co.th>
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         signoff: false
-        delete-branch: true
+        delete-branch: false
         title: 'Sync Update From laradock/laradock'
         body: |
           Update report
