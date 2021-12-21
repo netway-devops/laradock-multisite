@@ -47,7 +47,9 @@ RUN a2enmod substitute \
     && a2enmod proxy_balancer \
     && service apache2 restart
 
-#ping, nano
-RUN apt update -y \
-    && apt install -y iputils-ping \
-    && apt install -y nano
+# #ping, nano, netcat
+# RUN apt-get update -y \
+#     && apt-get install -y iputils-ping \
+#     && apt-get install -y nano \
+#     && apt-get install -y netcat \
+#     && apt install net-tools

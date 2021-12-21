@@ -1731,4 +1731,7 @@ RUN chown -R $USERNAME /home/$USERNAME/.vscode-server
 
 #upgrade git
 RUN add-apt-repository -y ppa:git-core/ppa && \
-  apt-get -yqq install git \
+  apt-get -yqq install git
+
+#expose for nuxtjs, axios client.netway.co.th
+EXPOSE 8810 8830
