@@ -41,7 +41,7 @@ jobs:
       with:
         target_sync_branch: ${{ env.UPDATE_BRANCH_NAME }}
         # REQUIRED 'target_repo_token' exactly like this!
-        target_repo_token: ${{ secrets.TOKEN }}
+        #target_repo_token: ${{ secrets.TOKEN }}
         upstream_sync_branch: master
         upstream_sync_repo: laradock/laradock
         # Set test_mode true to run tests instead of the true action!!
