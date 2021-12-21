@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
+    - name: setup git config
+      run: |
+        git config user.name 'Arnut Klamhui'
+        git config user.email 'arnut@netway.co.th'
     
     - name: Set branch name to ENV
       run: echo "UPDATE_BRANCH_NAME=update/sync-from-upstream-repo-$(date +'%Y-%m-%d')" >> $GITHUB_ENV
@@ -56,15 +60,7 @@ jobs:
         echo "New commits were found to sync."
         echo ${{ steps.sync.outputs.has_new_commits }}
     
-    - name: pull reqest to main
-      if: steps.sync.outputs.has_new_commits == 'true'
-      run: |
-        git config user.name 'Arnut Klamhui'
-        git config user.email 'arnut@netway.co.th'
-        git add .
-        git commit -m "Sync update from laradock/laradock"
-    
-    - name: Create Pull Request
+    - name: Create Pull Request to main
       if: steps.sync.outputs.has_new_commits == 'true'
       uses: peter-evans/create-pull-request@v3
       with:
