@@ -31,7 +31,7 @@ jobs:
         # sync action checks out your 'target_sync_branch' anyway
         ref:  ${{ env.UPDATE_BRANCH_NAME }}
         # REQUIRED if your upstream repo is private (see wiki)
-        persist-credentials: false
+        # persist-credentials: false
         
     # REQUIRED step
     # Step 2: run the sync action
