@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
-    - name: setup git config
-      run: |
-        git config user.name 'Arnut Klamhui'
-        git config user.email 'arnut@netway.co.th'
     
     - name: Set branch name to ENV
       run: echo "UPDATE_BRANCH_NAME=update/sync-from-upstream-repo-$(date +'%Y-%m-%d')" >> $GITHUB_ENV
@@ -36,7 +32,10 @@ jobs:
         ref:  ${{ env.UPDATE_BRANCH_NAME }}
         # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
-
+      run: |
+        git config user.name 'Arnut Klamhui'
+        git config user.email 'arnut@netway.co.th'
+        
     # REQUIRED step
     # Step 2: run the sync action
     - name: Sync upstream changes
