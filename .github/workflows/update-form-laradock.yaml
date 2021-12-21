@@ -32,11 +32,6 @@ jobs:
         ref:  ${{ env.UPDATE_BRANCH_NAME }}
         # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
-    
-    - name: setup git config
-      run: |
-        git config user.name 'Arnut Klamhui'
-        git config user.email 'arnut@netway.co.th'
         
     # REQUIRED step
     # Step 2: run the sync action
@@ -53,6 +48,8 @@ jobs:
         test_mode: false
         git_config_pull_rebase: true
         target_branch_push_args: "--force"
+        git_config_user: "Arnut Klamhui"
+        git_config_email: "arnut@netway.co.th"
       
     # Step 3: Display a sample message based on the sync output var 'has_new_commits'
     - name: New commits found
