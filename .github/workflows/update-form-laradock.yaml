@@ -63,8 +63,8 @@ jobs:
       if: steps.sync.outputs.has_new_commits == 'true'
       uses: peter-evans/create-pull-request@v3
       with:
-        branch: ${{ env.UPDATE_BRANCH_NAME }}
-        base: main
+        branch: main
+        base: ${{ env.UPDATE_BRANCH_NAME }}
         token: ${{ secrets.TOKEN }}
         commit-message: Update report
         committer: Arnut Klamhui <arnut@netway.co.th>
