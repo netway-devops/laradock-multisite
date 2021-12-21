@@ -66,7 +66,7 @@ jobs:
         branch: ${{ env.UPDATE_BRANCH_NAME }}
         base: main
         token: ${{ secrets.TOKEN }}
-        commit-message: Update report
+        commit-message: Sync Update from upstream laradock/laradock
         committer: Arnut Klamhui <arnut@netway.co.th>
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         signoff: false
