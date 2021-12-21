@@ -52,11 +52,32 @@ jobs:
     # Step 3: Display a sample message based on the sync output var 'has_new_commits'
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'
-      run: echo "New commits were found to sync."
+      run: |
+        echo "New commits were found to sync."
+        echo ${{ steps.sync.outputs.has_new_commits }}
+    
+    - name: pull reqest to main
+      if: steps.sync.outputs.has_new_commits == 'true'
+      run: |
+        git config user.name 'Arnut Klamhui'
+        git config user.email 'arnut@netway.co.th'
+        git add .
+        git commit -m "Sync update from laradock/laradock"
+    
+    - name: Create Pull Request
+      if: steps.sync.outputs.has_new_commits == 'true'
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: sync update from laradock/laradock
+        title: sync update from laradock/laradock
+        delete-branch: true
+        token: ${{ secrets.TOKEN }}
+        base: main
+        branch: ${{ env.UPDATE_BRANCH_NAME }}
     
     - name: No new commits
       if: steps.sync.outputs.has_new_commits == 'false'
       run: echo "There were no new commits."
+    
       
-    - name: Show value of 'has_new_commits'
-      run: echo ${{ steps.sync.outputs.has_new_commits }}
+      
