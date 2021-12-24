@@ -395,7 +395,9 @@ services:
     ports:
       - "${REDIS_PORT}:6379"
     networks:
-      - backend
+      backend:
+      laradocknetwork:
+        ipv4_address: ${REDIS_CONTAINER_IP}
 
   ### phpMyAdmin ###########################################
   phpmyadmin:
