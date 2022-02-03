@@ -2,14 +2,14 @@ name: CI
 
 on:
   push:
-    branches: "**"
-    tags: "**"
+    branches: '**'
+    tags: '**'
     paths-ignore:
-      - ".github/workflows/build-deploy-docs.yml"
-      - "DOCUMENTATION/**"
+      - '.github/workflows/build-deploy-docs.yml'
+      - 'DOCUMENTATION/**'
   pull_request:
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: '0 0 * * 0'
 
 jobs:
   build-php:
@@ -19,8 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: ["7.1", "7.2", "7.3", "7.4", "8.0"]
-        service: [php-fpm, php-worker, workspace]
+        php_version: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0", "8.1" ]
+        service: [ php-fpm, php-worker, workspace ]
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
@@ -57,19 +57,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        service:
-          [
-            "nginx",
-            "redis",
-            "mysql",
-            "mariadb",
-            "percona",
-            "minio",
-            "mongo",
-            "apache2",
-            "phpmyadmin",
-            "mailhog",
-          ]
+        service: [ 'nginx', 'redis', 'mysql', 'mariadb', 'percona', 'minio', 'mongo' ]
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
