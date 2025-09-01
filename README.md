@@ -359,3 +359,6 @@ You can sponsor us using any of the methods below:
 [bronze-sponsors-href]: https://opencollective.com/laradock#contributors
 
 
+
+
+<!-- Security scan triggered at 2025-09-01 20:10:30 -->
